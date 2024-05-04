@@ -6,17 +6,6 @@ export default function Contact({
   deleteContact,
 }) {
   return (
-    // <li className={css.item}>
-    //   <div className={css.span}>
-    //
-    //     <span>{name}</span>
-    //
-    //     <span>{number}</span>
-    //   </div>
-    //   <button className={css.button} onClick={() => deleteContact(id)}>
-    //     Delete
-    //   </button>
-    // </li>
     <li style={{ listStyle: "none" }}>
       <div className={css.listItem}>
         <div className={css.info}>
