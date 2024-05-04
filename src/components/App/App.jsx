@@ -17,27 +17,24 @@ const UserSchema = Yup.object().shape({
     .max(50, "Max 50 numbers!")
     .required("Is required!"),
 });
+const contactsList = [
+  { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+  { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+  { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+  { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+];
+const localStorageKey = "saved-contacts";
 
 export default function App() {
-  const localStorageKey = "saved-contacts";
-
   const initContacts = () => {
     const lsData = JSON.parse(localStorage.getItem(localStorageKey));
-    if (lsData.length !== 0) {
-      return lsData;
-    }
+    if (lsData) return lsData;
     return contactsList;
   };
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(contacts)), [contacts];
   });
 
-  const contactsList = [
-    { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-    { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-    { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-    { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-  ];
   const [contacts, setContacts] = useState(initContacts);
   const [filter, setFilter] = useState("");
 
